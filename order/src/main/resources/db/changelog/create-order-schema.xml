@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="dan-pavel" id="1">
+        <!-- purchase_order sequence -->
+        <createSequence sequenceName="purchase_order_seq"/>
+        <!-- purchase_order tabel -->
+        <createTable tableName="purchase_order">
+            <column name="id" type="bigint">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="amount" type="number(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="int" remarks="0-PENDING, 1-CONFIRMED, 2-REJECTED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <!-- purchase_order_position sequence -->
+        <createSequence sequenceName="purchase_order_position_seq"/>
+        <!-- purchase_order_position tabel -->
+        <createTable tableName="purchase_order_position">
+            <column name="id" type="bigint">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="book_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="purchase_order_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_purchase_order" references="purchase_order(id)"/>
+            </column>
+            <column name="quantity" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

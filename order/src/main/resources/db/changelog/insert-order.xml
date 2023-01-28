@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="dan-pavel" id="2">
+        <insert tableName="purchase_order">
+            <column name="id" valueSequenceNext="purchase_order_seq"/>
+            <column name="state" valueNumeric="0"/>
+            <column name="amount" valueNumeric="19.99"/>
+            <column name="customer_name" value="Pavel Dan Gabriel"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="purchase_order_position">
+            <column name="id" valueSequenceNext="purchase_order_position_seq"/>
+            <column name="book_id" valueNumeric="1"/>
+            <column name="purchase_order_id" valueNumeric="1"/>
+            <column name="quantity" valueNumeric="1"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
