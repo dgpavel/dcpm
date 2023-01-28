@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="dan-pavel" id="2">
+        <insert tableName="author">
+            <column name="id" valueSequenceNext="author_seq"/>
+            <column name="firstname" value="Thorben"/>
+            <column name="lastname" value="Janssen"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="author">
+            <column name="id" valueSequenceNext="author_seq"/>
+            <column name="firstname" value="Douglas"/>
+            <column name="lastname" value="Bell"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="author">
+            <column name="id" valueSequenceNext="author_seq"/>
+            <column name="firstname" value="Mike"/>
+            <column name="lastname" value="Parr"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" valueSequenceNext="book_seq"/>
+            <column name="title" value="Hibernate Tips - More than 70 solutions to common Hibernate problems"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" valueSequenceNext="book_seq"/>
+            <column name="title" value="Java For Students"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="book_author">
+            <column name="book_id" valueNumeric="1"/>
+            <column name="author_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="book_author">
+            <column name="book_id" valueNumeric="2"/>
+            <column name="author_id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="book_author">
+            <column name="book_id" valueNumeric="2"/>
+            <column name="author_id" valueNumeric="3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

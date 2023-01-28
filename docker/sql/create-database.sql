@@ -1,0 +1,12 @@
+--
+-- Create database for order service
+--
+CREATE DATABASE "order";
+--
+-- Create database for book service
+--
+CREATE DATABASE "book";
+--
+-- Create database for inventory service
+--
+CREATE DATABASE "inventory";

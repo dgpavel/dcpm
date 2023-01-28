@@ -1,0 +1,29 @@
+services:
+
+  postgres:
+    image: postgres:15.1
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - mynet
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    volumes:
+      - ./sql/create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - mynet
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=postgres@test.ro
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+
+networks:
+  mynet:
+    driver: bridge
