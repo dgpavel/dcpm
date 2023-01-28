@@ -1,6 +1,7 @@
 package ro.dma.dcpm.book;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.dma.dcpm.book.dao.BookQueryDao;
 import ro.dma.dcpm.book.dto.BookDetailsForView;
 
@@ -13,6 +14,7 @@ public class ViewBookDetails implements ViewBookDetailsUC {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public BookDetailsForView getBookDetailsForView(Long idBook) {
         if (idBook == null) {
             throw new IllegalArgumentException("idBook must be not null");

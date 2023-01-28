@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="dan-pavel" id="2">
+        <insert tableName="inventory">
+            <column name="id" valueSequenceNext="inventory_seq"/>
+            <column name="book_id" valueNumeric="1"/>
+            <column name="quantity" valueNumeric="100"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="inventory">
+            <column name="id" valueSequenceNext="inventory_seq"/>
+            <column name="book_id" valueNumeric="2"/>
+            <column name="quantity" valueNumeric="500"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
