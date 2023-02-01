@@ -10,3 +10,7 @@ CREATE DATABASE "book";
 -- Create database for inventory service
 --
 CREATE DATABASE "inventory";
+--
+-- Create database for review service
+--
+CREATE DATABASE "review";
