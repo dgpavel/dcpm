@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 @Builder
 public class PurchaseOrderPositionDto {
-    private Long bookId;
+    private Long idBook;
     private int quantity;
 }

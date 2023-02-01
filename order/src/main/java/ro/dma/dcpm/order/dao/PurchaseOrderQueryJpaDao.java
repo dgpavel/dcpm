@@ -35,7 +35,7 @@ public class PurchaseOrderQueryJpaDao implements PurchaseOrderQueryDao {
                 orderJoin.get(PurchaseOrderJpaEntity_.amount).alias(PurchaseOrderJpaEntity_.AMOUNT),
                 orderJoin.get(PurchaseOrderJpaEntity_.customerName).alias(PurchaseOrderJpaEntity_.CUSTOMER_NAME),
                 orderJoin.get(PurchaseOrderJpaEntity_.state).alias(PurchaseOrderJpaEntity_.STATE),
-                positionRoot.get(PurchaseOrderPositionJpaEntity_.bookId).alias(PurchaseOrderPositionJpaEntity_.BOOK_ID),
+                positionRoot.get(PurchaseOrderPositionJpaEntity_.idBook).alias(PurchaseOrderPositionJpaEntity_.ID_BOOK),
                 positionRoot.get(PurchaseOrderPositionJpaEntity_.quantity).alias(PurchaseOrderPositionJpaEntity_.QUANTITY)
         );
         cq.where(cb.equal(orderJoin.get(PurchaseOrderJpaEntity_.id), idPurchaseOrder));
@@ -55,7 +55,7 @@ public class PurchaseOrderQueryJpaDao implements PurchaseOrderQueryDao {
             List<PurchaseOrderPositionDto> positions = new ArrayList<>();
             for (Tuple item : tupleLst) {
                 PurchaseOrderPositionDto position = PurchaseOrderPositionDto.builder()
-                        .bookId(item.get(PurchaseOrderPositionJpaEntity_.BOOK_ID, Long.class))
+                        .idBook(item.get(PurchaseOrderPositionJpaEntity_.ID_BOOK, Long.class))
                         .quantity(item.get(PurchaseOrderPositionJpaEntity_.QUANTITY, Integer.class))
                         .build();
                 positions.add(position);

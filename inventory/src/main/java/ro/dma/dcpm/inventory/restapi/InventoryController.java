@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ro.dma.dcpm.inventory.ViewCurrentInventoryOfTheBookUC;
 
 @RestController
-@RequestMapping(path = "/api/v1/inventory")
+@RequestMapping(path = "/api/v1/inventories")
 public class InventoryController {
     private final Logger logger = LoggerFactory.getLogger(InventoryController.class);
     private final ViewCurrentInventoryOfTheBookUC viewCurrentInventoryOfTheBook;

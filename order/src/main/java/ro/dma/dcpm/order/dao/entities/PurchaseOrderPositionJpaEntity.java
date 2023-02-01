@@ -18,7 +18,7 @@ public class PurchaseOrderPositionJpaEntity {
     @Version
     private int version;
     @Column(name = "book_id")
-    private Long bookId;
+    private Long idBook;
     private int quantity;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_order_id")
