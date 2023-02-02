@@ -23,7 +23,11 @@ public class ReviewController {
     }
 
     @GetMapping(path = "/book/{idBook}")
-    public List<BookReview> getBookReviews(@PathVariable Long idBook) {
+    public List<BookReview> getBookReviews(@PathVariable Long idBook) throws InterruptedException {
+        if (logger.isInfoEnabled()) {
+            logger.info("Sleeping for 5000ms before returning reviews for book");
+        }
+        Thread.sleep(5000);
         logger.info("Done ... view book reviews");
         return viewBookReviews.getBookReviews(idBook);
     }
