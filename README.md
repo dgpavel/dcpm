@@ -21,3 +21,7 @@ Se utilizeaza librariile Open Feign si Resilience4J.
 - http://localhost:7070/api/v1/orders/1
 - http://localhost:8080/api/v1/inventories/book/1
 - http://localhost:9090/api/v1/orderinfo/1
+
+### Service Discovery Pattern - branch
+
+Se utilizeaza Apache ZooKeeper in rol de "Service Discovery Server / Service Registry" 

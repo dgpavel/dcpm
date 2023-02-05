@@ -24,6 +24,14 @@ services:
       - PGADMIN_DEFAULT_EMAIL=postgres@test.ro
       - PGADMIN_DEFAULT_PASSWORD=postgres
 
+  zookeeper:
+    image: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+    networks:
+      - mynet
+
 networks:
   mynet:
     driver: bridge
