@@ -24,4 +24,5 @@ Se utilizeaza librariile Open Feign si Resilience4J.
 
 ### Service Discovery Pattern - branch
 
-Se utilizeaza Apache ZooKeeper in rol de "Service Discovery Server / Service Registry" 
+Se utilizeaza Apache ZooKeeper in rol de "Service Discovery Server / Service Registry"
+client-side load-balancing via integration with Spring Cloud LoadBalancer.
