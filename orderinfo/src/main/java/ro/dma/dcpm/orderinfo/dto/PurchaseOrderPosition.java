@@ -1,4 +1,4 @@
-package ro.dma.dcpm.orderinfo.domain;
+package ro.dma.dcpm.orderinfo.dto;
 
 import lombok.Builder;
 import lombok.Getter;

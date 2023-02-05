@@ -1,7 +1,7 @@
 package ro.dma.dcpm.orderinfo;
 
 import org.springframework.stereotype.Component;
-import ro.dma.dcpm.orderinfo.domain.*;
+import ro.dma.dcpm.orderinfo.dto.*;
 import ro.dma.dcpm.orderinfo.httpclient.book.BookServiceClient;
 import ro.dma.dcpm.orderinfo.httpclient.inventory.InventoryServiceClient;
 import ro.dma.dcpm.orderinfo.httpclient.order.OrderServiceClient;
@@ -51,7 +51,7 @@ public class ViewAggregateOrderInformation implements ViewAggregateOrderInformat
     }
 
     private AggregateOrderPositionInformation transform(PurchaseOrderPosition p) {
-        Book book = bookServiceClient.getBook(p.getIdBook());
+        Book book = bookServiceClient.getBookDetailsForView(p.getIdBook());
         String titleAuthors = book.getTitle() != null ? book.getTitle() : "";
         if (book.getAuthors() != null) {
             titleAuthors = titleAuthors + " - " + book.getAuthors();

@@ -1,4 +1,4 @@
-package ro.dma.dcpm.orderinfo.domain;
+package ro.dma.dcpm.orderinfo.dto;
 
 public enum OrderState {
     PENDING, CONFIRMED, REJECTED
