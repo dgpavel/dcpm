@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="dan-pavel" id="2">
+        <insert tableName="review">
+            <column name="id" valueSequenceNext="review_seq"/>
+            <column name="book_id" valueNumeric="1"/>
+            <column name="message"
+                    value="If you are working with Hibernate ORM, Thorben's book should be on your desk. Excellent contents, presented in a very practical FAQ-style format.A copy of Hibernate Tips should be given to each developer when joining a project using Hibernate"/>
+            <column name="written_by" value="Gunnar Morling, Open Source Software Engineer"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+        <insert tableName="review">
+            <column name="id" valueSequenceNext="review_seq"/>
+            <column name="book_id" valueNumeric="1"/>
+            <column name="message"
+                    value="Thorben's book tackles real world tasks and problems that arise during development with Hibernate. The table of contents reads like a best-of-Hibernate-questions that have been asked during everyday development, from getting started to harder problems."/>
+            <column name="written_by" value="Michael Simons, Senior Developer"/>
+            <column name="version" valueNumeric="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
