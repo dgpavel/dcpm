@@ -8,9 +8,9 @@ import ro.dma.dcpm.book.dto.BookReview;
 
 import java.util.List;
 
-@FeignClient(name = "review", url = "${dcpm.review-api-path}", fallbackFactory = ReviewServiceClientFallbackFactory.class)
+@FeignClient(name = "review", fallbackFactory = ReviewServiceClientFallbackFactory.class)
 public interface ReviewServiceClient {
 
-    @GetMapping(path = "/book/{idBook}")
+    @GetMapping(path = "/api/v1/reviews/book/{idBook}")
     List<BookReview> getReviewsForBook(@PathVariable("idBook") Long idBook);
 }
