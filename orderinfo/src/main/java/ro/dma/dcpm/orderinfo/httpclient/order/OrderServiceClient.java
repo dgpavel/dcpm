@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import ro.dma.dcpm.orderinfo.dto.PurchaseOrder;
 
 
-@FeignClient(name = "order", url = "${dcpm.order-api-path}", fallbackFactory = OrderServiceClientFallbackFactory.class)
+@FeignClient(name = "order", fallbackFactory = OrderServiceClientFallbackFactory.class)
 public interface OrderServiceClient {
-    @GetMapping(path = "/{idOrder}")
+    @GetMapping(path = "/api/v1/orders/{idOrder}")
     PurchaseOrder getOrder(@PathVariable("idOrder") Long idOrder);
 }

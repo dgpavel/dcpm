@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import ro.dma.dcpm.orderinfo.dto.Book;
 
 
-@FeignClient(name = "book", url = "${dcpm.book-api-path}", fallbackFactory = BookServiceClientFallbackFactory.class)
+@FeignClient(name = "book", fallbackFactory = BookServiceClientFallbackFactory.class)
 public interface BookServiceClient {
-    @GetMapping(path = "/{idBook}")
+    @GetMapping(path = "/api/v1/books/{idBook}")
     Book getBookDetailsForView(@PathVariable("idBook") Long idBook);
 }

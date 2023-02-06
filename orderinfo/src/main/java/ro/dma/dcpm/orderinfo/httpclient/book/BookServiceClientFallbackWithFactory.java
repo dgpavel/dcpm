@@ -9,7 +9,9 @@ public class BookServiceClientFallbackWithFactory implements BookServiceClient {
     @Override
     public Book getBookDetailsForView(Long bookId) {
         log.warn("Circuit Breaker - OrderInfo call Book#getBookDetailsForView");
-        return Book.builder().build();
+        return Book.builder()
+                .id(bookId)
+                .build();
     }
 
 }
