@@ -14,3 +14,7 @@ CREATE DATABASE "inventory";
 -- Create database for review service
 --
 CREATE DATABASE "review";
+--
+-- Create database for order-info service
+--
+CREATE DATABASE "order-info";

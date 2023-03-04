@@ -35,3 +35,7 @@ Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă.
 - http://localhost:7070/api/v1/orders/1
 - http://localhost:8080/api/v1/inventories/book/1
 - http://localhost:9090/api/v1/orderinfo/1
+
+### View Databases Pattern - branch
+
+Implementare pattern pentru microserviciul OrderInfo
