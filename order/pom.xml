@@ -19,6 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.1</spring-cloud.version>
+        <hypersistence-tsid.version>2.0.0</hypersistence-tsid.version>
     </properties>
 
     <dependencyManagement>
@@ -64,6 +65,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- TSID – Time-Sorted Unique Identifiers -->
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-tsid</artifactId>
+            <version>${hypersistence-tsid.version}</version>
         </dependency>
     </dependencies>
 

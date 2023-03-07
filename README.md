@@ -38,4 +38,6 @@ Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă.
 
 ### View Databases Pattern - branch
 
-Implementare pattern pentru microserviciul OrderInfo
+Implementare View Databases Pattern pentru microserviciul OrderInfo
+Implementare Outbox Pattern pentru microserviciul Order
+{"customerName":"Pavel Dan Gabriel","amount":11.56,"state":0,"positions":[{"idBook":2,"quantity":5}]}

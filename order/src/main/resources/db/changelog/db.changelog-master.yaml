@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/create-order-schema.xml
   - include:
       file: db/changelog/insert-order.xml
+  - include:
+      file: db/changelog/create-outbox-schema.xml
