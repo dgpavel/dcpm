@@ -1,0 +1,28 @@
+server:
+  port: 6060
+spring:
+  application:
+    name: book
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: book
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dcpm
+    username: postgres
+    password: postgres
+  liquibase:
+    default-schema: book
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+    zookeeper:
+      connect-string: localhost:2181
+logging:
+  level:
+    ro.dma.dcpm: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    ro.dma.dcpm.book.httpclient.review.ReviewServiceClient: debug

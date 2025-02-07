@@ -1,9 +1,16 @@
-# Patterns for Microservices
+# Patterns for Microservices 
+[Data and Communication Patterns for Microservices](https://thorben-janssen.com)
+
+### Database per service
+It is recommended that each microservice have its own database (Database per service).  
+To simplify, we will have a single database. Each microservice has a database schema that’s private to that service (Schema per service).
 
 ### API Composition - branch
 
 OrderInfo apeleaza microserviciile  Book, Inventory, Order.  
 Se utilizeaza libraria Open Feign.  
+
+![](docs/api-composition.png)
 
 - http://localhost:6060/api/v1/books/1
 - http://localhost:7070/api/v1/orders/1

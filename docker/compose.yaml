@@ -1,7 +1,7 @@
 services:
 
   postgres:
-    image: postgres:15.1
+    image: postgres:17.2
     restart: always
     ports:
       - 5432:5432
@@ -35,7 +35,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
 
   kafka:
-    image: bitnami/kafka:latest
+    image: apache/kafka:latest
     ports:
       - 9092:9092
     networks:

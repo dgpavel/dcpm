@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.4.2</version>
     </parent>
 
     <groupId>ro.dma.dcpm</groupId>
@@ -18,8 +18,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
-        <spring-cloud.version>2022.0.1</spring-cloud.version>
-        <hypersistence-tsid.version>2.0.0</hypersistence-tsid.version>
+        <spring-cloud.version>2024.0.0</spring-cloud.version>
+        <hypersistence-tsid.version>2.1.3</hypersistence-tsid.version>
+        <preliquibase-spring-boot-starter.version>1.6.0</preliquibase-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -55,11 +56,17 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <!-- liquibase -->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.lbruun.springboot</groupId>
+            <artifactId>preliquibase-spring-boot-starter</artifactId>
+            <version>${preliquibase-spring-boot-starter.version}</version>
         </dependency>
         <!-- lombok -->
         <dependency>
@@ -71,11 +78,6 @@
             <groupId>io.hypersistence</groupId>
             <artifactId>hypersistence-tsid</artifactId>
             <version>${hypersistence-tsid.version}</version>
-        </dependency>
-        <!-- spring kafka -->
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
         </dependency>
     </dependencies>
 

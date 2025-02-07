@@ -7,18 +7,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.4.2</version>
     </parent>
 
     <groupId>ro.dma.dcpm</groupId>
-    <artifactId>review-fast</artifactId>
+    <artifactId>review-slow</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
-        <spring-cloud.version>2022.0.1</spring-cloud.version>
+        <spring-cloud.version>2024.0.0</spring-cloud.version>
+        <preliquibase-spring-boot-starter.version>1.6.0</preliquibase-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -54,11 +55,17 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <!-- liquibase -->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.lbruun.springboot</groupId>
+            <artifactId>preliquibase-spring-boot-starter</artifactId>
+            <version>${preliquibase-spring-boot-starter.version}</version>
         </dependency>
         <!-- lombok -->
         <dependency>

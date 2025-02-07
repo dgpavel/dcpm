@@ -1,0 +1,24 @@
+server:
+  port: 5051
+spring:
+  application:
+    name: review
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: review
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dcpm
+    username: postgres
+    password: postgres
+  liquibase:
+    default-schema: review
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+logging:
+  level:
+    ro.dma.dcpm: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

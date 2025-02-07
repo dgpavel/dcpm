@@ -21,7 +21,7 @@ public class SpringCloudConfiguration {
         return factory -> factory.configure(builder ->
                 builder
                         .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
-                        .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(10)).build()
+                        .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(3)).build()
                         ), "ReviewServiceClientgetReviewsForBookLong");
     }
 }

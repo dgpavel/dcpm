@@ -1,0 +1,21 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: order-info
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: order_info
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dcpm
+    username: postgres
+    password: postgres
+  liquibase:
+    default-schema: order_info
+logging:
+  level:
+    ro.dma.dcpm: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
