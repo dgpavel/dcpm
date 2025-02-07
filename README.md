@@ -35,6 +35,7 @@ Implementarea Client-Side Service Discovery
 Se utilizeaza Apache ZooKeeper in rol de "Service Discovery Server / Service Registry"  
 Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă. Microserviciul Book le accesează folosind un Load Balancer  
 
+![](docs/service-discovery.png)
 
 - http://localhost:5050/api/v1/reviews/book/1
 - http://localhost:5051/api/v1/reviews/book/1
