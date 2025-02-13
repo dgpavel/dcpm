@@ -15,8 +15,8 @@ spring:
   liquibase:
     default-schema: book
   cloud:
-    openfeign:
-      circuitbreaker:
+    circuitbreaker:
+      resilience4j:
         enabled: true
     zookeeper:
       connect-string: localhost:2181
@@ -26,3 +26,13 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
     ro.dma.dcpm.book.httpclient.review.ReviewServiceClient: debug
+resilience4j.timelimiter:
+  configs:
+    default:
+      timeoutDuration: 1s
+      cancelRunningFuture: true
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      register-health-indicator: true
+

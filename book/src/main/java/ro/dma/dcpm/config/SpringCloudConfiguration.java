@@ -1,27 +1,32 @@
 package ro.dma.dcpm.config;
 
-import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
-import io.github.resilience4j.timelimiter.TimeLimiterConfig;
-import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory;
-import org.springframework.cloud.client.circuitbreaker.Customizer;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.support.RestClientAdapter;
+import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import ro.dma.dcpm.book.httpclient.review.ReviewServiceClient;
 
-import java.time.Duration;
+import static ro.dma.dcpm.book.httpclient.review.ReviewServiceClient.REVIEW_SERVICE_NAME;
 
 @Configuration
-@EnableFeignClients(clients = {ReviewServiceClient.class})
+@EnableDiscoveryClient
 public class SpringCloudConfiguration {
 
+    @LoadBalanced
     @Bean
-    public Customizer<Resilience4JCircuitBreakerFactory> slowCustomizer() {
-        // default 1 s
-        return factory -> factory.configure(builder ->
-                builder
-                        .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
-                        .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(3)).build()
-                        ), "ReviewServiceClientgetReviewsForBookLong");
+    RestClient.Builder restClientBuilder() {
+        return RestClient.builder();
     }
+
+    @Bean
+    public ReviewServiceClient createReviewServiceClient(RestClient.Builder restClientBuilder) {
+        RestClient restClient = restClientBuilder.baseUrl("http://" + REVIEW_SERVICE_NAME).build();
+        RestClientAdapter adapter = RestClientAdapter.create(restClient);
+        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
+        return factory.createClient(ReviewServiceClient.class);
+    }
+
 }
