@@ -44,8 +44,6 @@ Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă.
 - http://localhost:8080/api/v1/inventories/book/1
 - http://localhost:9090/api/v1/orderinfo/1
 
-### View Databases Pattern - branch
-
+### View Databases Pattern, Event Driven Pattern - branch
 Implementare View Databases Pattern pentru microserviciul OrderInfo
-Implementare Outbox Pattern pentru microserviciul Order
-{"customerName":"Pavel Dan Gabriel","amount":11.56,"state":0,"positions":[{"idBook":2,"quantity":5}]}
+Implementare Event Driven Pattern cu Apache Kafka
