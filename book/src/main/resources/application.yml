@@ -26,13 +26,9 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
     ro.dma.dcpm.book.httpclient.review.ReviewServiceClient: debug
-resilience4j.timelimiter:
-  configs:
-    default:
-      timeoutDuration: 1s
-      cancelRunningFuture: true
-resilience4j.circuitbreaker:
-  configs:
-    default:
-      register-health-indicator: true
+resilience4j:
+  timelimiter:
+    instances:
+      review:
+        timeout-duration: 1s
 

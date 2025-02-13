@@ -8,6 +8,8 @@ import ro.dma.dcpm.book.dto.BookReview;
 import ro.dma.dcpm.book.httpclient.review.ReviewServiceClient;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class ViewBookDetails implements ViewBookDetailsUC {
@@ -21,13 +23,13 @@ public class ViewBookDetails implements ViewBookDetailsUC {
 
     @Override
     @Transactional(readOnly = true)
-    public BookDetailsForView getBookDetailsForView(Long idBook) {
+    public BookDetailsForView getBookDetailsForView(Long idBook) throws ExecutionException, InterruptedException {
         if (idBook == null) {
             throw new IllegalArgumentException("idBook must be not null");
         }
         BookDetailsForView bookDetails = carteQueryDao.getBookDetailsForView(idBook);
-        List<BookReview> reviews = reviewServiceClient.getReviewsForBook(idBook);
-        bookDetails.setReviews(reviews);
+        CompletableFuture<List<BookReview>> reviewsFuture = reviewServiceClient.readReviewsForBook(idBook);
+        bookDetails.setReviews(reviewsFuture.get());
         return bookDetails;
     }
 }
