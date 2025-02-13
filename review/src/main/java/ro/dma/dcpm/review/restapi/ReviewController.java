@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ro.dma.dcpm.review.ViewBookReviewsUC;
+import ro.dma.dcpm.review.ViewBookReviews;
 import ro.dma.dcpm.review.dto.BookReview;
 
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.List;
 public class ReviewController {
 
     private final Logger logger = LoggerFactory.getLogger(ReviewController.class);
-    private final ViewBookReviewsUC viewBookReviews;
+    private final ViewBookReviews viewBookReviews;
 
-    public ReviewController(ViewBookReviewsUC viewBookReviews) {
+    public ReviewController(ViewBookReviews viewBookReviews) {
         this.viewBookReviews = viewBookReviews;
     }
 
