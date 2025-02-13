@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ro.dma.dcpm.book.ViewBookDetailsUC;
+import ro.dma.dcpm.book.ViewBookDetails;
 import ro.dma.dcpm.book.dto.BookDetailsForView;
 
 import java.util.concurrent.ExecutionException;
@@ -16,9 +16,9 @@ import java.util.concurrent.ExecutionException;
 public class BookController {
 
     private final Logger logger = LoggerFactory.getLogger(BookController.class);
-    private final ViewBookDetailsUC viewBookDetails;
+    private final ViewBookDetails viewBookDetails;
 
-    public BookController(ViewBookDetailsUC viewBookDetails) {
+    public BookController(ViewBookDetails viewBookDetails) {
         this.viewBookDetails = viewBookDetails;
     }
 
