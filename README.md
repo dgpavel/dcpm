@@ -10,7 +10,7 @@ To simplify, we will have a single database. Each microservice has a database sc
 OrderInfo apeleaza microserviciile  Book, Inventory, Order.  
 Se utilizeaza libraria Open Feign.  
 
-![](docs/api-composition.png)
+![](docs/diagrams/api-composition.png)
 
 - http://localhost:6060/api/v1/books/1
 - http://localhost:7070/api/v1/orders/1
@@ -35,7 +35,7 @@ Implementarea Client-Side Service Discovery
 Se utilizeaza Apache ZooKeeper in rol de "Service Discovery Server / Service Registry"  
 Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă. Microserviciul Book le accesează folosind un Load Balancer  
 
-![](docs/service-discovery.png)
+![](docs/diagrams/service-discovery.png)
 
 - http://localhost:5050/api/v1/reviews/book/1
 - http://localhost:5051/api/v1/reviews/book/1

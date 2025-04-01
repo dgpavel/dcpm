@@ -1,59 +1,47 @@
 services:
 
   postgres:
+    container_name: dcpm_pgsql
     image: postgres:17.2
-    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dcpm
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
-      - mynet
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-    volumes:
-      - ./sql/create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+      - dcpm-net
+    restart: unless-stopped
 
   pgadmin:
+    container_name: dcpm_pgadmin
     image: dpage/pgadmin4:latest
-    restart: always
-    ports:
-      - 80:80
-    networks:
-      - mynet
     environment:
-      - PGADMIN_DEFAULT_EMAIL=postgres@test.ro
-      - PGADMIN_DEFAULT_PASSWORD=postgres
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-postgres@test.ro}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-postgres}
+    ports:
+      - 5050:80
+    networks:
+      - dcpm-net
+    restart: unless-stopped
 
   zookeeper:
+    container_name: dcpm_zookeeper
     image: zookeeper
-    restart: always
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: yes
     ports:
       - 2181:2181
     networks:
-      - mynet
-    environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
+      - dcpm-net
+    restart: unless-stopped
 
-  kafka:
-    image: apache/kafka:latest
-    ports:
-      - 9092:9092
-    networks:
-      - mynet
-    environment:
-      # Configure listeners for both docker and host communication
-      KAFKA_LISTENERS: CONTROLLER://localhost:9091,HOST://0.0.0.0:9092,DOCKER://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: HOST://localhost:9092,DOCKER://kafka:9093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,DOCKER:PLAINTEXT,HOST:PLAINTEXT
-      # Settings required for KRaft mode
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9091
-      # Listener to use for broker-to-broker communication
-      KAFKA_INTER_BROKER_LISTENER_NAME: DOCKER
-      # Required for a single node cluster
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 networks:
-  mynet:
+  dcpm-net:
     driver: bridge
+
+volumes:
+  postgres:
