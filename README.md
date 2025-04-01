@@ -12,10 +12,10 @@ Se utilizeaza libraria Open Feign.
 
 ![](docs/diagrams/api-composition.png)
 
-- http://localhost:6060/api/v1/books/1
-- http://localhost:7070/api/v1/orders/1
-- http://localhost:8080/api/v1/inventories/book/1
-- http://localhost:9090/api/v1/orderinfo/1
+- http://localhost:8080/api/v1/books/1
+- http://localhost:8081/api/v1/orders/1
+- http://localhost:8082/api/v1/inventories/book/1
+- http://localhost:8083/api/v1/orderinfo/1
 
 ### Circuit Breaker - branch
 
@@ -23,11 +23,11 @@ OrderInfo apeleaza microserviciile Book, Inventory, Order.
 Book apeleaza microserviciul Review.  
 Se utilizeaza librariile Open Feign si Resilience4J.   
 
-- http://localhost:5050/api/v1/reviews/book/1
-- http://localhost:6060/api/v1/books/1
-- http://localhost:7070/api/v1/orders/1
-- http://localhost:8080/api/v1/inventories/book/1
-- http://localhost:9090/api/v1/orderinfo/1
+- http://localhost:8084/api/v1/reviews/book/1
+- http://localhost:8080/api/v1/books/1
+- http://localhost:8081/api/v1/orders/1
+- http://localhost:8082/api/v1/inventories/book/1
+- http://localhost:8083/api/v1/orderinfo/1
 
 ### Service Discovery Pattern - branch
 
@@ -37,12 +37,12 @@ Două instanțe ale aceluiași microserviciu Review: una lentă și una rapidă.
 
 ![](docs/diagrams/service-discovery.png)
 
-- http://localhost:5050/api/v1/reviews/book/1
-- http://localhost:5051/api/v1/reviews/book/1
-- http://localhost:6060/api/v1/books/
-- http://localhost:7070/api/v1/orders/1
-- http://localhost:8080/api/v1/inventories/book/1
-- http://localhost:9090/api/v1/orderinfo/1
+- http://localhost:8084/api/v1/reviews/book/1
+- http://localhost:8085/api/v1/reviews/book/1
+- http://localhost:8080/api/v1/books/
+- http://localhost:8081/api/v1/orders/1
+- http://localhost:8082/api/v1/inventories/book/1
+- http://localhost:8083/api/v1/orderinfo/1
 
 ### View Databases Pattern, Event Driven Pattern - branch
 Implementare View Databases Pattern pentru microserviciul OrderInfo
