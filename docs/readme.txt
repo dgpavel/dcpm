@@ -1,8 +1,7 @@
 Rulare docker.
 - in linia de comanda
 - cd docker
-- docker-compose build
-- docker-compose up
+- docker-compose up -d
 
 
 
